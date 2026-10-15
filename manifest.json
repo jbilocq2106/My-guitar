@@ -1,0 +1,19 @@
+{
+  "name": "My Guitar",
+  "short_name": "My Guitar",
+  "description": "Apprendre la guitare de façon ludique, pas à pas.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080b0d",
+  "theme_color": "#0b0f12",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

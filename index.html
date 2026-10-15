@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f12" />
+  <title>My Guitar</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="icon.svg" alt="" class="brand-logo" />
+        <div><strong>My Guitar</strong><span id="levelLabel">Niveau 1 · Débutant absolu</span></div>
+      </div>
+      <button id="installBtn" class="ghost small" hidden>Installer</button>
+    </header>
+
+    <main>
+      <section id="home" class="view active">
+        <div class="hero card">
+          <div class="eyebrow">Aujourd’hui</div>
+          <h1 id="todayTitle">10 min pour progresser</h1>
+          <p id="nextLessonText">Ta prochaine mission t’attend.</p>
+          <button id="startNextBtn" class="primary big">▶ Commencer</button>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat card"><strong id="streakStat">0</strong><span>🔥 jours</span></div>
+          <div class="stat card"><strong id="xpStat">0</strong><span>⭐ XP</span></div>
+          <div class="stat card"><strong id="minutesStat">0</strong><span>🎸 min</span></div>
+        </div>
+
+        <div class="section-head"><h2>Accès rapide</h2></div>
+        <div class="quick-grid">
+          <button class="quick card" data-go="learn"><span>📚</span><strong>Continuer</strong><small>Parcours guidé</small></button>
+          <button class="quick card" data-action="challenge"><span>🎯</span><strong>Jeu rapide</strong><small>2 minutes</small></button>
+          <button class="quick card" data-go="play"><span>🎵</span><strong>Riff rock</strong><small>Jouer maintenant</small></button>
+          <button class="quick card" data-action="metronome"><span>⏱</span><strong>Métronome</strong><small>60 BPM</small></button>
+        </div>
+
+        <div class="section-head"><h2>Objectif quotidien</h2><span id="goalText">0 / 10 min</span></div>
+        <div class="progress"><div id="dailyProgress"></div></div>
+      </section>
+
+      <section id="learn" class="view">
+        <div class="section-head"><h1>Apprendre</h1><span id="courseProgressLabel"></span></div>
+        <p class="muted">Parcours Débutant absolu · avance leçon par leçon.</p>
+        <div id="lessonList" class="stack"></div>
+      </section>
+
+      <section id="play" class="view">
+        <h1>Jouer</h1>
+        <div class="card riff-card">
+          <div class="eyebrow">Riff 1 · Rock</div>
+          <h2>Mi grave</h2>
+          <p>Joue les cases dans l’ordre. Commence lentement.</p>
+          <div id="riffSteps" class="riff-steps"></div>
+          <div class="row">
+            <button id="riffSlow" class="secondary">🐢 Lent</button>
+            <button id="riffNormal" class="primary">▶ Normal</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-head"><h2>Manche interactif</h2><span id="fretHint">Touche une case</span></div>
+          <div id="fretboard" class="fretboard"></div>
+          <div id="fretInfo" class="info-box">Choisis une corde et une case.</div>
+        </div>
+
+        <div class="card">
+          <div class="section-head"><h2>Métronome</h2><strong id="bpmLabel">60 BPM</strong></div>
+          <div class="metronome-controls">
+            <button id="bpmMinus" class="ghost">−5</button>
+            <button id="metroToggle" class="primary round">▶</button>
+            <button id="bpmPlus" class="ghost">+5</button>
+          </div>
+          <div id="beatDots" class="beat-dots"><span></span><span></span><span></span><span></span></div>
+        </div>
+      </section>
+
+      <section id="challenges" class="view">
+        <h1>Défis</h1>
+        <div class="card challenge-card">
+          <div class="eyebrow">Défi rapide</div>
+          <h2 id="challengeQuestion">Trouve la bonne corde</h2>
+          <p id="challengeHelp" class="muted"></p>
+          <div id="challengeOptions" class="challenge-options"></div>
+          <div id="challengeResult" class="result"></div>
+          <button id="newChallengeBtn" class="secondary">Nouveau défi</button>
+        </div>
+        <div class="card">
+          <h2>Badges</h2>
+          <div id="badges" class="badges"></div>
+        </div>
+      </section>
+
+      <section id="progressView" class="view">
+        <h1>Progression</h1>
+        <div class="stats-row">
+          <div class="stat card"><strong id="progressXp">0</strong><span>XP</span></div>
+          <div class="stat card"><strong id="progressLessons">0</strong><span>leçons</span></div>
+          <div class="stat card"><strong id="progressMinutes">0</strong><span>minutes</span></div>
+        </div>
+        <div class="card">
+          <h2>Compétences</h2>
+          <div id="skillBars" class="skills"></div>
+        </div>
+        <div class="card">
+          <h2>Sauvegarde</h2>
+          <p class="muted">Ta progression est enregistrée sur ce téléphone.</p>
+          <div class="row">
+            <button id="exportBtn" class="secondary">Exporter</button>
+            <label class="secondary file-label">Importer<input id="importInput" type="file" accept="application/json" hidden></label>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="active" data-view="home"><span>🏠</span><small>Accueil</small></button>
+      <button data-view="learn"><span>📚</span><small>Apprendre</small></button>
+      <button data-view="play"><span>🎸</span><small>Jouer</small></button>
+      <button data-view="challenges"><span>🎯</span><small>Défis</small></button>
+      <button data-view="progressView"><span>📈</span><small>Progression</small></button>
+    </nav>
+  </div>
+
+  <dialog id="lessonDialog">
+    <div class="dialog-inner">
+      <button id="closeLesson" class="close">×</button>
+      <div class="eyebrow" id="lessonKicker"></div>
+      <h2 id="lessonTitle"></h2>
+      <p id="lessonBody"></p>
+      <div id="lessonVisual"></div>
+      <div class="tip" id="lessonTip"></div>
+      <button id="completeLessonBtn" class="primary big">✓ Terminer la leçon</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

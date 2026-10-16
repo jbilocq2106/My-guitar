@@ -22,10 +22,10 @@
     <main>
       <section id="home" class="view active">
         <div class="hero card">
-          <div class="eyebrow">Aujourd’hui</div>
-          <h1 id="todayTitle">10 min pour progresser</h1>
-          <p id="nextLessonText">Ta prochaine mission t’attend.</p>
-          <button id="startNextBtn" class="primary big">▶ Commencer</button>
+          <div class="eyebrow">Exercice en cours</div>
+          <h1 id="todayTitle">Seven Nation Army · 5e corde</h1>
+          <p id="nextLessonText">Une seule corde, uniquement les frettes.</p>
+          <button id="startNextBtn" class="primary big">▶ Reprendre l’exercice</button>
         </div>
 
         <div class="stats-row">
@@ -37,8 +37,8 @@
         <div class="section-head"><h2>Accès rapide</h2></div>
         <div class="quick-grid">
           <button class="quick card" data-go="learn"><span>📚</span><strong>Continuer</strong><small>Parcours guidé</small></button>
-          <button class="quick card" data-action="challenge"><span>🎯</span><strong>Jeu rapide</strong><small>2 minutes</small></button>
-          <button class="quick card" data-go="play"><span>🎵</span><strong>Riff rock</strong><small>Jouer maintenant</small></button>
+          <button class="quick card" data-action="challenge"><span>🎯</span><strong>Jeu rapide</strong><small>Frettes du riff</small></button>
+          <button class="quick card" data-go="play"><span>🎵</span><strong>Seven Nation Army</strong><small>5e corde · frettes</small></button>
           <button class="quick card" data-action="metronome"><span>⏱</span><strong>Métronome</strong><small>60 BPM</small></button>
         </div>
 
@@ -48,27 +48,28 @@
 
       <section id="learn" class="view">
         <div class="section-head"><h1>Apprendre</h1><span id="courseProgressLabel"></span></div>
-        <p class="muted">Parcours Débutant absolu · avance leçon par leçon.</p>
+        <p class="muted">On part de l’exercice que tu joues maintenant : une seule corde, des frettes, puis le rythme.</p>
         <div id="lessonList" class="stack"></div>
       </section>
 
       <section id="play" class="view">
         <h1>Jouer</h1>
         <div class="card riff-card">
-          <div class="eyebrow">Riff 1 · Rock</div>
-          <h2>Mi grave</h2>
-          <p>Joue les cases dans l’ordre. Commence lentement.</p>
+          <div class="eyebrow">Exercice actuel · Seven Nation Army</div>
+          <h2>5e corde (La)</h2>
+          <p>Ne joue que la 5e corde. Suis les frettes dans l’ordre, sans solfège.</p>
           <div id="riffSteps" class="riff-steps"></div>
           <div class="row">
             <button id="riffSlow" class="secondary">🐢 Lent</button>
             <button id="riffNormal" class="primary">▶ Normal</button>
           </div>
+          <button id="riffDone" class="secondary big">✓ J’ai pratiqué 5 min</button>
         </div>
 
         <div class="card">
-          <div class="section-head"><h2>Manche interactif</h2><span id="fretHint">Touche une case</span></div>
+          <div class="section-head"><h2>5e corde · frettes utiles</h2><span id="fretHint">Touche une frette</span></div>
           <div id="fretboard" class="fretboard"></div>
-          <div id="fretInfo" class="info-box">Choisis une corde et une case.</div>
+          <div id="fretInfo" class="info-box">Choisis une frette de l’exercice.</div>
         </div>
 
         <div class="card">
@@ -85,8 +86,8 @@
       <section id="challenges" class="view">
         <h1>Défis</h1>
         <div class="card challenge-card">
-          <div class="eyebrow">Défi rapide</div>
-          <h2 id="challengeQuestion">Trouve la bonne corde</h2>
+          <div class="eyebrow">Seven Nation Army · 5e corde</div>
+          <h2 id="challengeQuestion">Trouve la bonne frette</h2>
           <p id="challengeHelp" class="muted"></p>
           <div id="challengeOptions" class="challenge-options"></div>
           <div id="challengeResult" class="result"></div>
